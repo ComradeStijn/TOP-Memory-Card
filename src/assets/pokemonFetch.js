@@ -16,7 +16,7 @@ async function fetchPokemonImage(id) {
       id: id,
       name: pokemonName,
       imageURL: imageURL,
-      isPicked: false,
+      isClicked: false,
     };
   } catch (error) {
     console.log(error.message);
