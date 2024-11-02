@@ -1,0 +1,39 @@
+#root-container {
+  margin: 2rem auto;
+  padding: 2rem;
+  width: fit-content;
+}
+
+.card-container {
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.2s ease-out;
+}
+
+.card {
+  height: 10rem;
+  width: 10rem;
+  background-color: rgb(217, 235, 251);
+  border-radius: 20px;
+  transition: all 0.2s ease-out;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.card:hover, .card:focus {
+  cursor: pointer;
+  transform: scale(1.1);
+  outline: 5px solid rgb(123, 193, 255);
+}
+
+.gameover {
+  opacity: 0;
+  visibility: hidden;
+}
