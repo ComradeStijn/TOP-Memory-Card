@@ -1,0 +1,24 @@
+#root-container {
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.card-container {
+  margin: 0 auto;
+  width: 50rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.card {
+  height: 10rem;
+  width: 10rem;
+  background-color: rgb(217, 235, 251);
+  border-radius: 20px;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}

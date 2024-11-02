@@ -1,5 +1,7 @@
-const POKEMON_COUNT = 151;
 import { useEffect, useState } from "react";
+import { generatePokemonIDs, fetchPokemonImage } from "./assets/pokemonFetch";
+import "./App.css";
+import Card from "./components/Card";
 
 export default function App() {
   const [pokemons, setPokemons] = useState([]);
@@ -16,42 +18,21 @@ export default function App() {
     fetchAll();
   }, []);
 
+  function pokeShuffler() {
+    setPokemons(() => [...pokemons.sort(() => Math.random() - 0.5)]);
+  }
+
+
+
   return (
-    <>
-    
-    </>
+    <main id="root-container">
+      <div className="card-container">
+        {pokemons.map(pokemon => (
+          <Card key={pokemon.id} pokemon={pokemon} />
+        ))}
+      </div>
+      <button onClick={pokeShuffler}>Shuffle</button>
+    </main>
   );
 }
 
-async function fetchPokemonImage(id) {
-  const url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
-
-    const result = await response.json();
-    const imageURL = result.sprites.front_default;
-    const pokemonName = result.name;
-    return {
-      id: id,
-      name: pokemonName,
-      imageURL: imageURL,
-    };
-  } catch (error) {
-    console.log(error.message);
-  }
-}
-
-function generatePokemonIDs(count) {
-  const results = [];
-
-  while (results.length < count) {
-    const id = Math.floor(Math.random() * POKEMON_COUNT) + 1;
-    if (!results.includes(id)) {
-      results.push(id);
-    }
-  }
-  return results;
-}
