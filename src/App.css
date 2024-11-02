@@ -27,10 +27,12 @@
   }
 }
 
-.card:hover, .card:focus {
-  cursor: pointer;
-  transform: scale(1.1);
-  outline: 5px solid rgb(123, 193, 255);
+@media (min-width: 767px) {
+  .card:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    outline: 5px solid rgb(123, 193, 255);
+  }
 }
 
 .gameover {
